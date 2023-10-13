@@ -1,0 +1,86 @@
+val textFile = spark.read.textFile("/Users/chongjonghoa/Desktop/titanic.csv")
+textFile: org.apache.spark.sql.Dataset[String] = [value: string]
+
+textFile.count()
+res0: Long = 892
+
+textFile.first()
+res1: String = PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+
+textFile.show()
++--------------------+
+|               value|
++--------------------+
+|PassengerId,Survi...|
+|1,0,3,"Braund, Mr...|
+|2,1,1,"Cumings, M...|
+|3,1,3,"Heikkinen,...|
+|4,1,1,"Futrelle, ...|
+|5,0,3,"Allen, Mr....|
+|6,0,3,"Moran, Mr....|
+|7,0,1,"McCarthy, ...|
+|8,0,3,"Palsson, M...|
+|9,1,3,"Johnson, M...|
+|10,1,2,"Nasser, M...|
+|11,1,3,"Sandstrom...|
+|12,1,1,"Bonnell, ...|
+|13,0,3,"Saunderco...|
+|14,0,3,"Andersson...|
+|15,0,3,"Vestrom, ...|
+|16,1,2,"Hewlett, ...|
+|17,0,3,"Rice, Mas...|
+|18,1,2,"Williams,...|
+|19,0,3,"Vander Pl...|
++--------------------+
+
+val result = textFile.collect()
+result: Array[String] = Array(PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked, 1,0,3,"Braund, Mr. Owen Harris",male,22,1,0,A/5 21171,7.25,,S, 2,1,1,"Cumings, Mrs. John Bradley (Florence Briggs Thayer)",female,38,1,0,PC 17599,71.2833,C85,C, 3,1,3,"Heikkinen, Miss. Laina",female,26,0,0,STON/O2. 3101282,7.925,,S, 4,1,1,"Futrelle, Mrs. Jacques Heath (Lily May Peel)",female,35,1,0,113803,53.1,C123,S, 5,0,3,"Allen, Mr. William Henry",male,35,0,0,373450,8.05,,S, 6,0,3,"Moran, Mr. James",male,,0,0,330877,8.4583,,Q, 7,0,1,"McCarthy, Mr. Timothy J",male,54,0,0,17463,51.8625,E46,S, 8,0,3,"Palsson, Master. Gosta Leonard",male,2,3,1,349909,21.075,,S, 9,1,3,"Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)",female,27,0,2,347742,11.1333,,S, 10...
+
+result.foreach(println)
+
+val sum = textFile.reduce((x, y) => x + y)
+sum: String = PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked1,0,3,"Braund, Mr. Owen Harris",male,22,1,0,A/5 21171,7.25,,S2,1,1,"Cumings, Mrs. John Bradley (Florence Briggs Thayer)",female,38,1,0,PC 17599,71.2833,C85,C3,1,3,"Heikkinen, Miss. Laina",female,26,0,0,STON/O2. 3101282,7.925,,S4,1,1,"Futrelle, Mrs. Jacques Heath (Lily May Peel)",female,35,1,0,113803,53.1,C123,S5,0,3,"Allen, Mr. William Henry",male,35,0,0,373450,8.05,,S6,0,3,"Moran, Mr. James",male,,0,0,330877,8.4583,,Q7,0,1,"McCarthy, Mr. Timothy J",male,54,0,0,17463,51.8625,E46,S8,0,3,"Palsson, Master. Gosta Leonard",male,2,3,1,349909,21.075,,S9,1,3,"Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)",female,27,0,2,347742,11.1333,,S10,1,2,"Nasser, Mrs. Nicholas (Adele A...
+
+val outputPath = "/chemin/vers/votre/fichier.txt"
+val outputPath = "/Users/chongjonghoa/Desktop/Text/test.txt"
+
+import org.apache.spark.sql.Dataset
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{SparkSession, DataFrame}
+val spark: SparkSession = SparkSession.builder().appName("Save DataFrame to Text File").getOrCreate()
+val df: DataFrame = spark.read.format("csv").option("header", "true").load("/Users/chongjonghoa/Desktop/titanic.csv")
+val outputPath = "/Users/chongjonghoa/Desktop/Text/test.txt"
+
+df.show()
++-----------+--------+------+--------------------+------+----+-----+-----+----------------+-------+-----+--------+
+|PassengerId|Survived|Pclass|                Name|   Sex| Age|SibSp|Parch|          Ticket|   Fare|Cabin|Embarked|
++-----------+--------+------+--------------------+------+----+-----+-----+----------------+-------+-----+--------+
+|          1|       0|     3|Braund, Mr. Owen ...|  male|  22|    1|    0|       A/5 21171|   7.25| null|       S|
+|          2|       1|     1|Cumings, Mrs. Joh...|female|  38|    1|    0|        PC 17599|71.2833|  C85|       C|
+|          3|       1|     3|Heikkinen, Miss. ...|female|  26|    0|    0|STON/O2. 3101282|  7.925| null|       S|
+|          4|       1|     1|Futrelle, Mrs. Ja...|female|  35|    1|    0|          113803|   53.1| C123|       S|
+|          5|       0|     3|Allen, Mr. Willia...|  male|  35|    0|    0|          373450|   8.05| null|       S|
+|          6|       0|     3|    Moran, Mr. James|  male|null|    0|    0|          330877| 8.4583| null|       Q|
+|          7|       0|     1|McCarthy, Mr. Tim...|  male|  54|    0|    0|           17463|51.8625|  E46|       S|
+|          8|       0|     3|Palsson, Master. ...|  male|   2|    3|    1|          349909| 21.075| null|       S|
+|          9|       1|     3|Johnson, Mrs. Osc...|female|  27|    0|    2|          347742|11.1333| null|       S|
+|         10|       1|     2|Nasser, Mrs. Nich...|female|  14|    1|    0|          237736|30.0708| null|       C|
+|         11|       1|     3|Sandstrom, Miss. ...|female|   4|    1|    1|         PP 9549|   16.7|   G6|       S|
+|         12|       1|     1|Bonnell, Miss. El...|female|  58|    0|    0|          113783|  26.55| C103|       S|
+|         13|       0|     3|Saundercock, Mr. ...|  male|  20|    0|    0|       A/5. 2151|   8.05| null|       S|
+|         14|       0|     3|Andersson, Mr. An...|  male|  39|    1|    5|          347082| 31.275| null|       S|
+|         15|       0|     3|Vestrom, Miss. Hu...|female|  14|    0|    0|          350406| 7.8542| null|       S|
+|         16|       1|     2|Hewlett, Mrs. (Ma...|female|  55|    0|    0|          248706|     16| null|       S|
+|         17|       0|     3|Rice, Master. Eugene|  male|   2|    4|    1|          382652| 29.125| null|       Q|
+|         18|       1|     2|Williams, Mr. Cha...|  male|null|    0|    0|          244373|     13| null|       S|
+|         19|       0|     3|Vander Planke, Mr...|female|  31|    1|    0|          345763|     18| null|       S|
+|         20|       1|     3|Masselmani, Mrs. ...|female|null|    0|    0|            2649|  7.225| null|       C|
++-----------+--------+------+--------------------+------+----+-----+-----+----------------+-------+-----+--------+
+only showing top 20 rows
+
+val selectedColumns = df.select("Name")
+selectedColumns
+res18  .write
+val outputPath = "/Users/chongjonghoa/Desktop/Text/test2.txt"
+selectedColumns.write.text(outputPath)
+
