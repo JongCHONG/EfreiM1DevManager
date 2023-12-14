@@ -1,0 +1,51 @@
+
+- name: Exécuter une commande et enregistrer la sortie
+  hosts: cible
+
+  tasks:
+    - name: Exécuter la commande
+      command: echo "Hello, world!"
+      register: output
+
+    - name: Enregistrer la sortie dans un fichier local
+      local_action: copy content="{{ output.stdout }}" dest="/chemin/vers/fichier.txt"
+
+
+
+
+- name: Déploiement de l'application
+  hosts: cible
+
+  tasks:
+    - name: Vérifier si les prérequis sont déjà installés
+      command: check_prerequisites.sh
+      register: prerequisites_output
+      ignore_errors: true
+
+    - name: Installer les prérequis
+      command: install_prerequisites.sh
+      when: prerequisites_output.rc != 0
+
+    - name: Déployer l'application
+      command: deploy_application.sh
+
+
+
+
+- name: Exécuter un script shell et envoyer un rapport par courriel
+  hosts: cible
+
+  tasks:
+    - name: Exécuter le script shell
+      shell: /chemin/vers/votre_script.sh
+      register: script_output
+
+    - name: Envoyer un rapport par courriel
+      mail: 
+        host: smtp.example.com
+        port: 587
+        username: admin@example.com
+        password: your_password
+        to: admin@example.com
+        subject: Rapport d'exécution du script shell
+        body: "{{ script_output.stdout }}"
