@@ -1,0 +1,3123 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentation | Microservice</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"
+    />
+    <link
+      href="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/custom/prismjs/prismjs.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/global/plugins.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://preview.keenthemes.com/html/metronic/docs/assets/css/style.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <script>
+      let defaultThemeMode = "dark";
+      let themeMode;
+
+      if (document.documentElement) {
+        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+          themeMode =
+            document.documentElement.getAttribute("data-bs-theme-mode");
+        } else {
+          if (localStorage.getItem("data-bs-theme") !== null) {
+            themeMode = localStorage.getItem("data-bs-theme");
+          } else {
+            themeMode = defaultThemeMode;
+          }
+        }
+        if (themeMode === "system") {
+          themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+        document.documentElement.setAttribute("data-bs-theme", themeMode);
+      }
+    </script>
+
+    <div class="d-flex flex-column flex-root">
+      <div class="docs-page d-flex flex-row flex-column-fluid">
+        <div class="d-flex flex-column flex-row-fluid" id="kt_docs_wrapper">
+          <div
+            class="docs-content d-flex flex-column flex-column-fluid"
+            id="kt_docs_content"
+          >
+            <div
+              class="container d-flex flex-column flex-lg-row"
+              id="kt_docs_content_container"
+            >
+              <div
+                class="card card-docs flex-row-fluid mb-2"
+                id="kt_docs_content_card"
+              >
+                <div
+                  class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700"
+                >
+                  <div>
+                    <div
+                      class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20 mb-20"
+                      style="border: 1px solid white"
+                    >
+                      <h1 class="fw-bold text-center">
+                        Développement d'un Microservice en Python avec FastAPI
+                      </h1>
+                    </div>
+
+                    <div
+                      class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20 mb-20"
+                      style="border: 1px solid white"
+                    >
+                      <h3><b>Objectifs du Projet</b></h3>
+                      <p
+                        class="text-white fs-4"
+                        style="text-align: justify !important"
+                      >
+                        Le projet consiste à mettre en pratique les concepts et
+                        compétences acquis au cours du semestre en développant
+                        un microservice en utilisant le Framework FastAPI (<a
+                          href="https://fastapi.tiangolo.com/fr/"
+                          target="_blank"
+                          style="color: aqua"
+                          >Documentation</a
+                        >) en Python (<a
+                          href="https://docs.python.org/3/"
+                          target="_blank"
+                          style="color: aqua"
+                          >Documentation</a
+                        >).
+                      </p>
+                      <p
+                        class="text-white fs-4"
+                        style="text-align: justify !important"
+                      >
+                        L'objectif principal est de suivre le tutoriel
+                        disponible à l'adresse suivante
+                        <a
+                          href="https://dev.to/paurakhsharma/microservice-in-python-using-fastapi-24cc"
+                          target="_blank"
+                          style="color: aqua"
+                          >Microservice in Python using Fast API</a
+                        >
+                      </p>
+                      <br />
+                      <h3><b>Tâches à réaliser</b></h3>
+                      <p class="text-white fs-4">
+                        1. <u>Mettre en place le Microservice</u> en suivant les
+                        étapes du tutoriel et en respectant les bonnes pratiques
+                        de développement.
+                      </p>
+                      <p class="text-white fs-4">
+                        2. <u>Intégrer PostgreSQL</u> (<a
+                          href="https://www.postgresql.org/docs/current/"
+                          target="_blank"
+                          style="color: aqua"
+                          >Documentation</a
+                        >)
+                      </p>
+                      <p class="text-white fs-4">
+                        3. <u>Produire une documentation</u> complète du
+                        tutoriel :
+                      </p>
+
+                      <ol class="fs-4 text-white mt-3">
+                        <li class="mb-3">
+                          <b>Objectif de l'application :</b><br />
+                          - Définir clairement l'objectif de l'application
+                          développée<br />
+                          - Quel problème résout-elle ?<br />
+                          - À qui est-elle destinée ?<br />
+                          - Quelles fonctionnalités offre-t-elle ?
+                        </li>
+                        <li class="mb-3">
+                          <b>Lien avec les Microservices :</b><br />
+                          - Analyser et expliquer le lien entre l'application
+                          développée et les concepts du microservices<br />
+                          - Identifier les éléments de l'application qui
+                          relèvent du modèle microservices
+                        </li>
+                        <li class="mb-3">
+                          <b>Compréhension de l'application :</b><br />
+                          - Démontrer une compréhension approfondie de
+                          l'application développée<br />
+                          - Expliquer le fonctionnement interne du
+                          microservice<br />
+                          - Identifier les composants clés
+                        </li>
+                      </ol>
+                      <!-- </p> -->
+                      <br />
+                      <h3><b>Livrables</b></h3>
+                      <p class="text-white fs-4"></p>
+                      <ol class="fs-4 text-white">
+                        <li class="mb-3">
+                          Le code source du microservice dévelopé
+                        </li>
+                        <li>
+                          La documentation, qui sera un document détaillé
+                          couvrant toutes les étapes du tutoriel, les choix de
+                          conception, les problèmes rencontrés et les solutions
+                          apportées. Elle doit être claire, consice et bien
+                          strucurée.
+                        </li>
+                      </ol>
+                      <!-- </p> -->
+                    </div>
+
+                    <div
+                      class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20 mb-20"
+                      style="border: 1px solid white"
+                    >
+                      <p class="text-white fs-4">
+                        - Créer un dossier nommé<code
+                          class="text-gray-900 border border-1 border-white fs-4"
+                          ><i class="bi bi-folder-fill fs-5 text-white me-2"></i
+                          >ProjetMicroservice</code
+                        ><i>(nom d'exemple)</i>
+                      </p>
+                      <p class="text-white fs-4">
+                        - Ouvrir le dossier<code
+                          class="text-gray-900 border border-1 border-white fs-4"
+                          ><i class="bi bi-folder-fill fs-5 text-white me-2"></i
+                          >ProjetMicroservice</code
+                        >avec un IDE comme
+                        <a
+                          href="https://code.visualstudio.com/"
+                          target="_blank"
+                          style="color: aqua"
+                          >Visual Studio Code</a
+                        >
+                      </p>
+                    </div>
+
+                    <div
+                      class="alert bg-light-danger d-flex flex-column py-10 px-10 px-lg-20 mb-20"
+                      style="border: 1px solid white"
+                    >
+                      <h3 class="text-white mb-5"><b>Prérequis :</b></h3>
+                      <p class="text-white fs-4 fw-bold">
+                        - Installer
+                        <a
+                          href="https://www.python.org/downloads/"
+                          target="_blank"
+                          style="color: aqua; text-decoration: underline"
+                          >Python</a
+                        >
+                      </p>
+                      <p class="text-white fs-4 fw-bold">
+                        - Installer
+                        <a
+                          href="https://www.postgresql.org/download/"
+                          target="_blank"
+                          style="color: aqua; text-decoration: underline"
+                          >PostgreSQL</a
+                        >
+                      </p>
+                      <p class="text-white fs-4 fw-bold">
+                        - Installer
+                        <a
+                          href="https://www.pgadmin.org/download/"
+                          target="_blank"
+                          style="color: aqua; text-decoration: underline"
+                          >pgAdmin</a
+                        >
+                        (pour utiliser PostgreSQL)
+                      </p>
+                      <p class="text-white fs-4 fw-bold">
+                        - Installer
+                        <a
+                          href="https://www.docker.com/products/docker-desktop/"
+                          target="_blank"
+                          style="color: aqua; text-decoration: underline"
+                          >Docker</a
+                        >
+                      </p>
+                    </div>
+
+                    <div
+                      class="alert bg-light-success d-flex flex-column py-10 px-10 px-lg-20 mb-20"
+                      style="border: 1px solid white"
+                    >
+                      <h3 class="text-white mb-5"><b>Recommandé :</b></h3>
+                      <p class="text-white fs-4 fw-bold">
+                        - Installer
+                        <a
+                          href="https://code.visualstudio.com/download"
+                          target="_blank"
+                          style="color: aqua; text-decoration: underline"
+                          >Visual Studio Code</a
+                        >
+                        (IDE)
+                      </p>
+                    </div>
+
+                    <div class="fs-4 mb-20">
+                      <div
+                        class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20"
+                      >
+                        <h1 class="fw-bold mb-10">
+                          Étape 1 - Installation de
+                          <a
+                            href="https://fastapi.tiangolo.com/fr/"
+                            target="_blank"
+                            style="color: aqua"
+                            >FastAPI</a
+                          >
+                        </h1>
+                        <div class="text-white fs-4">
+                          <div class="mb-10">
+                            <div class="row d-flex justify-content-center">
+                              <div class="col-auto">
+                                <div class="alert alert-success" role="alert">
+                                  <h3>FastAPI, c'est quoi ?</h3>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    D'après la
+                                    <a
+                                      href="https://fastapi.tiangolo.com/fr/"
+                                      target="_blank"
+                                      style="color: aqua"
+                                      >documentation officielle de FastAPI</a
+                                    >, FastAPI est un Framework web moderne et
+                                    rapide pour la création d'API avec Python,
+                                    basé sur les annotations standart de Python.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              Avant d'installer FastAPI, créer un un nouvel
+                              environnement virtuel dans le répertoire<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >ProjetMicroservice</code
+                              >en utilisant
+                              <a
+                                href="https://docs.python.org/3/library/venv.html"
+                                target="_blank"
+                                style="color: aqua"
+                                >virtualenv</a
+                              >
+                            </p>
+                            <p class="text-white fs-4">
+                              Installer un environnement virtuel.
+                            </p>
+                            <p class="text-white fs-4">
+                              Ouvrir un Terminal <i>(Invite de commandes)</i> et
+                              saisir la commande suivante :
+                            </p>
+                            <div class="highlight mb-5">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">pip install virtualenv</code></pre>
+                              </div>
+                            </div>
+                            <div class="row d-flex justify-content-center mb-5">
+                              <div class="col-md-12">
+                                <div class="alert alert-danger" role="alert">
+                                  <p class="text-white fs-4">
+                                    Si l'installation de l'environnement virtuel
+                                    ne marche pas, mettre à jour<code
+                                      class="text-gray-900 border border-1 border-white fs-4"
+                                      >pip</code
+                                    >
+                                  </p>
+                                  <div class="highlight">
+                                    <span class="text-white"
+                                      >Mise à jour du module "pip" dans
+                                      l'environnement Python au niveau de
+                                      l'utilisateur :</span
+                                    ><br /><span>&nbsp;</span>
+                                    <button
+                                      class="highlight-copy btn"
+                                      data-bs-toggle="tooltip"
+                                      title="Copy command"
+                                    >
+                                      copy
+                                    </button>
+                                    <div class="highlight-code">
+                                      <pre
+                                        class="language-bash"
+                                      ><code class="language-bash" style="font-size: 13pt!important;">python.exe -m pip install --upgrade pip --user</code></pre>
+                                    </div>
+                                  </div>
+                                  <div class="highlight mb-2">
+                                    <span class="text-white"
+                                      >Mise à jour globale du module "pip" dans
+                                      l'environnement Python :</span
+                                    ><br /><span>&nbsp;</span>
+                                    <button
+                                      class="highlight-copy btn"
+                                      data-bs-toggle="tooltip"
+                                      title="Copy command"
+                                    >
+                                      copy
+                                    </button>
+                                    <div class="highlight-code">
+                                      <pre
+                                        class="language-bash"
+                                      ><code class="language-bash" style="font-size: 13pt!important;">python.exe -m pip install --upgrade pip</code></pre>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4">
+                              Créer un nouvel environnement virtuel
+                            </p>
+                            <div class="highlight mb-5">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">python.exe -m virtualenv env</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              Activer l'environnement virtuel :
+                            </p>
+                            <div class="highlight">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">.\env\Scripts\activate</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">Installer FastAPI :</p>
+                            <div class="highlight">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">pip install fastapi</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-5">
+                            <p class="text-white fs-4">
+                              Installer le serveur
+                              <a
+                                href="https://asgi.readthedocs.io/en/latest/"
+                                target="_blank"
+                                style="color: aqua"
+                                >ASGI</a
+                              >
+                              <i
+                                >(<b>A</b>synchronous <b>S</b>erver
+                                <b>G</b>ateway <b>I</b>nterface)</i
+                              ><code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >uvicorn</code
+                              >pour permettre à FastAPI de fonctionner.
+                            </p>
+                            <p class="text-white fs-4">
+                              Installer<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >uvicorn</code
+                              >:
+                            </p>
+                            <div class="highlight">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">pip install uvicorn</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fs-4 mb-20">
+                      <div
+                        class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20"
+                      >
+                        <h1 class="fw-bold mb-10">
+                          Étape 2 - Création d'une <b>API Rest</b> simple à
+                          l'aide de FastAPI
+                        </h1>
+                        <div class="text-white fs-4">
+                          <div class="mb-10">
+                            <div class="row d-flex justify-content-center">
+                              <div class="col-auto">
+                                <div class="alert alert-success" role="alert">
+                                  <h3>Une API Rest, c'est quoi ?</h3>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    Une API Rest est une interface de
+                                    programmation d'application
+                                    <i>(une API)</i> respectant les contraintes
+                                    du style d'<a
+                                      href="https://blog.nicolashachet.com/developpement-php/larchitecture-rest-expliquee-en-5-regles/"
+                                      target="_blank"
+                                      style="color: aqua"
+                                      >architecture REST</a
+                                    >
+                                    et permet d'intéragir avec les services web
+                                    <a
+                                      href="https://aws.amazon.com/fr/what-is/restful-api/"
+                                      target="_blank"
+                                      style="color: aqua"
+                                      >RESTful</a
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-5">
+                            <p class="text-white fs-4">
+                              1) Créer un nouveau répertoire<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >app</code
+                              >dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >ProjetMicroservice</code
+                              >
+                            </p>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              2) Dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >app</code
+                              >, créer un fichier nommé<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >
+                            </p>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              3) Ajouter le code suivant de le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation du Framework FastAPI
+from fastapi import FastAPI
+
+# Création d'une instance de FastAPI
+app = FastAPI()
+
+# Définition d'un décorateur d'opération de chemin
+@app.get('/')
+# Définition de la fonction de chemin
+async def index():
+    # Retour du contenu du chemin au format JSON
+    return {"Real": "Python"}
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              4) Exécuter le serveur en utilisant<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >uvicorn</code
+                              >
+                            </p>
+                            <div class="highlight">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">cd app # Optionel</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">uvicorn app.main:app --reload</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              Output
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">INFO:&nbsp;&nbsp;&nbsp;&nbsp;Will watch for changes in these directories: ['C:\\Path\\to\\folder\\ProjetMicroservice']
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Started reloader process [1704] using StatReload
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Started server process [9500]
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Waiting for application startup.
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Application startup complete.
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;127.0.0.1:23389 - "GET / HTTP/1.1" 200 OK
+</code></pre>
+                              </div>
+                            </div>
+                            <p>
+                              <a
+                                href="http://127.0.0.1:8000"
+                                target="_blank"
+                                style="color: aqua"
+                                >http://127.0.0.1:8000</a
+                              >
+                            </p>
+                            <div class="highlight mb-10">
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-json"
+                                ><code class="language-json" style="font-size: 13pt!important;">{"Real":"Python"}</code></pre>
+                              </div>
+                            </div>
+                            <p class="mb-10">
+                              <a
+                                href="http://127.0.0.1:8000/docs"
+                                target="_blank"
+                                style="color: aqua"
+                                >http://127.0.0.1:8000/docs</a
+                              >
+                            </p>
+                            <p class="text-white fs-4">
+                              L'exécution peut s'arrêter à l'aide de<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >ctrl + C</code
+                              >:
+                            </p>
+                            <div class="highlight">
+                              Output
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">INFO:&nbsp;&nbsp;&nbsp;&nbsp;Shutting down
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Waiting for application shutdown.
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Application shutdown complete.
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Finished server process [9500]
+INFO:&nbsp;&nbsp;&nbsp;&nbsp;Stopping reloader process [1704]
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-5">
+                            <h3 class="text-white fs-4 mb-5">
+                              Ajout de quelques fonctionnalités<b>CRUD</b>
+                              <i
+                                >(<b>C</b>reate <b>R</b>ead <b>U</b>pdate
+                                <b>D</b>elete)</i
+                              >
+                              à l'application.
+                            </h3>
+                            <p class="text-white fs-4">
+                              5) Mettre à jour le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation de BaseModel depuis le module pydantic
+from pydantic import BaseModel
+
+# Importation de List depuis le module typing
+from typing import List
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="row d-flex">
+                              <div class="col-auto">
+                                <div class="alert alert-warning" role="alert">
+                                  <p class="text-white fs-4 mb-0">
+                                    Après<code
+                                      class="text-gray-900 border border-1 border-white fs-4"
+                                      >app = FastAPI()</code
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Création d'une liste "fake_movie_db" contenant un dictionnaire d'informations sur un film
+fake_movie_db = [
+    {
+        'name': 'Star Wars: Episode IX - The Rise of Skywalker',
+        'plot': 'The surviving members of the resistance face the First Order once again.',
+        'genres': ['Action', 'Adventure', 'Fantasy'],
+        'casts': ['Daisy Ridley', 'Adam Driver']
+    }
+]
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># # Création d'une classe Movie qui étend BaseModel de pydantic
+class Movie(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts: List[str]
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Définition de la route en utilisant l'opérateur "get()" 
+# pour spécifier qu'elle doit être une liste de modèle "Movie"
+@app.get('/', response_model=List[Movie])
+async def index():
+    return fake_movie_db
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">Le code complet :</p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy full code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation du Framework FastAPI
+from fastapi import FastAPI
+
+# Importation de BaseModel depuis le module pydantic
+from pydantic import BaseModel
+
+# Importation de List depuis le module typing
+from typing import List
+
+# Création d'une instance de FastAPI
+app = FastAPI()
+
+# Création d'une liste "fake_movie_db" contenant un dictionnaire d'informations sur un film
+fake_movie_db = [
+    {
+        'name': 'Star Wars: Episode IX - The Rise of Skywalker',
+        'plot': 'The surviving members of the resistance face the First Order once again.',
+        'genres': ['Action', 'Adventure', 'Fantasy'],
+        'casts': ['Daisy Ridley', 'Adam Driver']
+    }
+]
+
+# Création d'une classe Movie qui étend BaseModel de pydantic
+class Movie(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts: List[str]
+
+# Définition de la route en utilisant l'opérateur "get()" 
+# pour spécifier qu'elle doit être une liste de modèle "Movie"
+@app.get('/', response_model=List[Movie])
+async def index():
+    return fake_movie_db
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <h3 class="text-white fs-4 mb-5">
+                              6) Ajouter une
+                              <a
+                                href="https://fastapi.tiangolo.com/fr/tutorial/first-steps/#definir-un-decorateur-doperation-de-chemin"
+                                target="_blank"
+                                style="color: aqua"
+                                >opération de chemin</a
+                              >
+                              pour <u>ajouter un film</u>
+                            </h3>
+                            <div class="row d-flex">
+                              <div class="col-auto">
+                                <div class="alert alert-warning" role="alert">
+                                  <p class="text-white fs-4 mb-0">
+                                    Après le point de terminaison pour voir les
+                                    informations d'un film<code
+                                      class="text-gray-900 border border-1 border-white fs-4"
+                                      >@app.get('/',
+                                      response_model=List[Movie])</code
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Définition d'une route en utilisant l'opérateur "post()" 
+# dont le code statut HTTP retourné doit être "201"
+@app.post('/', status_code=201)
+# Définition d'une fonction asynchrone (async) "add_movie"
+# avec comme paramètre un objet "payload" de type "Movie"
+# "Movie" est la classe créée précédement
+async def add_movie(payload: Movie):
+    # Conversion de l'objet "payload" en un dictionnaire (dict()) Python "movie"
+    movie = payload.dict()
+    # Ajoute le dictionnaire "movie" à la liste des films (fake_movie_db)
+    fake_movie_db.append(movie)
+    # Retourne un film avec son id
+    return {'id': len(fake_movie_db) - 1}
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">@app.post('/', status_code=201)
+async def add_movie(payload: Movie):
+    movie = payload.dict()
+    fake_movie_db.append(movie)
+    return {'id': len(fake_movie_db) - 1}
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                              <div class="col-auto">
+                                <div class="alert alert-success" role="alert">
+                                  <h3>Que veut dire "asynchrone" ?</h3>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    D'après la documentation de FastAPI,
+                                    asynchrone permet au programme d'effectuer
+                                    d'autres tâches pendant qu'une tâche n'est
+                                    pas encore terminée. Une fois les autres
+                                    tâches terminées, le programme reviendra sur
+                                    la tâche non terminée.
+                                  </p>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    Source :
+                                    <a
+                                      href="https://fastapi.tiangolo.com/fr/async/#code-asynchrone"
+                                      target="_blank"
+                                      style="color: aqua"
+                                      >Documentation de FastAPI - Code
+                                      asynchrone</a
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <h3 class="text-white fs-4 mb-5">
+                              7) Ajouter une opération de chemin pour
+                              <u>mettre à jour un film</u>
+                            </h3>
+                            <div class="row d-flex">
+                              <div class="col-auto">
+                                <div class="alert alert-warning" role="alert">
+                                  <p class="text-white fs-4 mb-0">
+                                    Après le point de terminaison pour ajouter
+                                    un film :<code
+                                      class="text-gray-900 border border-1 border-white fs-4"
+                                      >@app.post('/', status_code=201)</code
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4">
+                              Importer<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >HTTPException</code
+                              >depuis le module<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >fastapi</code
+                              >:
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation du Framework FastAPI et HTTPException
+from fastapi import FastAPI, HTTPException
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Définition d'une route en utilisant l'opérateur "put()" avec un paramètre {id}
+@app.put('/{id}')
+# Définition d'une fonction asychrone (async) "update_movie"
+# avec deux paramètres : 
+# - l'id (de type entier (int)) du film à mettre à jour
+# - un objet payload de type Movie (la classe) représentant les données mise à jour du film
+async def update_movie(id: int, payload: Movie):
+    # Conversion de l'objet "payload" en un dictionnaire (dict()) Python "movie"
+    movie = payload.dict()
+    # Calcul de la longueur de la liste des films "fake_movie_db"
+    movies_length = len(fake_movie_db)
+    # Vérification si l'id spécifié est dans la liste
+    if 0 <= id <= movies_length:
+        # Mise à jour du film dans la liste des films "fake_movie_db" via son [id]
+        fake_movie_db[id] = movie
+        # Retour d'une réponse vide pour indiquer que la mise à jour a réussie
+        return None
+    # Si l'id spécifié n'est pas dans la liste des films
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">@app.put('/{id}')
+async def update_movie(id: int, payload: Movie):
+    movie = payload.dict()
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        fake_movie_db[id] = movie
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <h3 class="text-white fs-4 mb-5">
+                              8) Ajouter une opération de chemin pour
+                              <u>supprimer un film</u>
+                            </h3>
+                            <div class="row d-flex">
+                              <div class="col-auto">
+                                <div class="alert alert-warning" role="alert">
+                                  <p class="text-white fs-4 mb-0">
+                                    Après le point de terminaison pour modifier
+                                    un film :<code
+                                      class="text-gray-900 border border-1 border-white fs-4"
+                                      >@app.put('/{id}')</code
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Définition d'une route en utilisant l'opérateur "delete()" avec un paramètre {id}
+@app.delete('/{id}')
+# Définition d'une fonction asychrone async) "delete_movie"
+# avec comme paramètre l'id (de type entier (int)) du film à supprimer
+async def delete_movie(id: int):
+    # Calcul de la longueur de la liste des films "fake_movie_db"
+    movies_length = len(fake_movie_db)
+    # Si l'id existe dans la liste des films
+    if 0 <= id <= movies_length:
+        # Suppression du film via son [id]
+        del fake_movie_db[id]
+        # Retour d'une réponse vide pour indiquer que la suppression a réussie
+        return None
+    # Si l'id n'existe pas dans la liste des films
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">@app.delete('/{id}')
+async def delete_movie(id: int):
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        del fake_movie_db[id]
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              9) Dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >app</code
+                              >, créer un dossier nommé<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >api</code
+                              >, et dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >api</code
+                              >
+                              créer un nouveau fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >movies.py</code
+                              >
+                            </p>
+                            <br />
+                            <p class="text-white fs-4">
+                              10) Déplacer la liste des films et toutes
+                              opérations de chemins du fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >vers le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >movies.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >movies.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation de List depuis le module typing
+from typing import List
+
+# Importation de "Header" et "APIRouter" depuis le module fastAPI
+from fastapi import HTTPException, Header, APIRouter
+
+# Importation de classe "Movie" depuis le fichier "models.py" (app>api>models.py)
+from app.api.models import Movie
+
+# Liste des films
+fake_movie_db = [
+    {
+        'name': 'Star Wars: Episode IX - The Rise of Skywalker',
+        'plot': 'The surviving members of the resistance face the First Order once again.',
+        'genres': ['Action', 'Adventure', 'Fantasy'],
+        'casts': ['Daisy Ridley', 'Adam Driver']
+    }
+]
+
+# Création d'une instance APIRouter()
+movies = APIRouter()
+
+# Opération de chemin pour ajouter un film (Create)
+@movies.post('/', status_code=201)
+async def add_movie(payload: Movie):
+    movie = payload.dict()
+    fake_movie_db.append(movie)
+    return {'id': len(fake_movie_db) - 1}
+
+# Opération de chemin pour lister les films (Read)
+@movies.get('/', response_model=List[Movie])
+async def index():
+    return fake_movie_db
+
+# Opération de chemin pour modifier un film (Update)
+@movies.put('/{id}')
+async def update_movie(id: int, payload: Movie):
+    movie = payload.dict()
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        fake_movie_db[id] = movie
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+
+# Opération de chemin pour supprimer un film (Delete)
+@movies.delete('/{id}')
+async def delete_movie(id: int):
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        del fake_movie_db[id]
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >movies.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from typing import List
+from fastapi import HTTPException, Header, APIRouter
+from app.api.models import Movie
+
+fake_movie_db = [
+    {
+        'name': 'Star Wars: Episode IX - The Rise of Skywalker',
+        'plot': 'The surviving members of the resistance face the First Order once again.',
+        'genres': ['Action', 'Adventure', 'Fantasy'],
+        'casts': ['Daisy Ridley', 'Adam Driver']
+    }
+]
+
+movies = APIRouter()
+
+@movies.post('/', status_code=201)
+async def add_movie(payload: Movie):
+    movie = payload.dict()
+    fake_movie_db.append(movie)
+    return {'id': len(fake_movie_db) - 1}
+
+@movies.get('/', response_model=List[Movie])
+async def index():
+    return fake_movie_db
+
+@movies.put('/{id}')
+async def update_movie(id: int, payload: Movie):
+    movie = payload.dict()
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        fake_movie_db[id] = movie
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+
+@movies.delete('/{id}')
+async def delete_movie(id: int):
+    movies_length = len(fake_movie_db)
+    if 0 <= id <= movies_length:
+        del fake_movie_db[id]
+        return None
+    raise HTTPException(status_code=404, detail="Movie with given id not found")
+</code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4">
+                              11) Dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >api</code
+                              >, créer un nouveau fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >models.py</code
+                              >
+                            </p>
+                            <p class="text-white fs-4">
+                              12) Ajouter le code suivant dans le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >models.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >models.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation de "List" depuis le module "typing"
+from typing import List
+
+# Importation de "BaseModel" depuis le module "pydantic"
+from pydantic import BaseModel
+
+# Définition de la classe "Movie"
+class Movie(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts: List[str]
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >models.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from typing import List
+from pydantic import BaseModel
+
+class Movie(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts: List[str]
+</code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4">
+                              13) Enregistrer ce nouveau fichier routes dans le
+                              fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation du Framework FastAPI
+from fastapi import FastAPI
+
+# Importation des films depuis le fichier "movies.py" (app>api>movies.py)
+from app.api.movies import movies
+
+# Création d'une instance de FastAPI
+app = FastAPI()
+
+# Inclusion des opérations de chemins (routes) de "movies.py"
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from fastapi import FastAPI
+from app.api.movies import movies
+
+app = FastAPI()
+
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fs-4 mb-20">
+                      <div
+                        class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20"
+                      >
+                        <h1 class="fw-bold mb-10">
+                          Étape 3 - Utilisation de PostgreSQL avec FastAPI
+                        </h1>
+                        <div class="text-white fs-4">
+                          <div class="mb-10">
+                            <div class="row d-flex justify-content-center">
+                              <div class="col-auto">
+                                <div class="alert alert-success" role="alert">
+                                  <h3>PostgreSQL, c'est quoi ?</h3>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    PostgreSQL est un système de gestion de base
+                                    de données relationnelles objets.
+                                  </p>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    Source :
+                                    <a
+                                      href="https://docs.postgresql.fr/16/intro-whatis.html"
+                                      target="_blank"
+                                      style="color: aqua"
+                                      >Documentation PostgreSQL - Définition de
+                                      PostgreSQL</a
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              14) Installer la bibliothèque<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >postgresql</code
+                              >
+                            </p>
+                            <p class="text-white fs-4">
+                              Ouvrir un Terminal et saisir la commande suivante
+                            </p>
+                            <div class="highlight mb-5">
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy command"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">pip install 'databases[postgresql]'</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              15) Dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >api</code
+                              >, créer un fichier nommé<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >db.py</code
+                              >
+                            </p>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              16) Ajouter le code suivant dans le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >db.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation des outils nécessaires depuis le module "sqlachemy" 
+# installé précedemment avec "pip install 'databases[postgresql]'"
+from sqlalchemy import (Column, Integer, MetaData, String, Table, create_engine, ARRAY)
+
+# Importation de "Database" depuis le module "databases"
+from databases import Database
+
+# URL utilisée pour se connecter à la base de données PostgreSQL
+# movie_user -> nom d'utilisateur
+# movie_password -> mot de passe de l'utilisateur
+# movie_db -> nom de la base de données
+DATABASE_URL = 'postgresql://movie_user:movie_password@localhost/movie_db'
+
+# Création d'un moteur de base de données
+engine = create_engine(DATABASE_URL)
+# Création d'une instance de la classe "MetaData()"
+metadata = MetaData()
+# pour stocker les informations sur la structure de la base de données
+
+# Création d'une table nommée "movies"
+# Création d'une instance de la classe "Table()"
+movies = Table(
+    'movies', # Nom de la table
+    metadata, # L'objet "MetaData()" créer précédemment
+    Column('id', Integer, primary_key=True),
+    Column('name', String(50)),
+    Column('plot', String(250)),
+    Column('genres', ARRAY(String)),
+    Column('casts', ARRAY(String))
+)
+
+# Création d'une instance de Database() 
+# avec l'URL de connexion à la base de données
+database = Database(DATABASE_URL)
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from sqlalchemy import (Column, Integer, MetaData, String, Table, create_engine, ARRAY)
+from databases import Database
+
+DATABASE_URL = 'postgresql://movie_user:movie_password@localhost/movie_db'
+
+engine = create_engine(DATABASE_URL)
+metadata = MetaData()
+
+movies = Table(
+    'movies', # Nom de la table
+    metadata, # L'objet "MetaData()" créer précédemment
+    Column('id', Integer, primary_key=True),
+    Column('name', String(50)),
+    Column('plot', String(250)),
+    Column('genres', ARRAY(String)),
+    Column('casts', ARRAY(String))
+)
+
+database = Database(DATABASE_URL)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              17) Modifier le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >main.py</code
+                              >pour établir la connexion à la base de données
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from fastapi import FastAPI
+from app.api.movies import movies
+
+# Importation des instances du fichier "bd.py" (app>api>db.py)
+from app.api.db import metadata, database, engine
+
+# Création de toutes les tables utilisant l'objet "metadata"
+# dans le fichier app>api>db.py
+metadata.create_all(engine)
+
+# Instanciation de FastAPI
+app = FastAPI()
+
+# Ouverture de la connexion à la base de données
+# lors du démarrage de l'application (uvicorn app.main:app --reload)
+@app.on_event("startup")
+async def startup():
+    await database.connect()
+
+# Fermeture de la connexion à la base de données
+# lors de l'arrêt de l'application (ctrl + c)
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
+
+
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from fastapi import FastAPI
+from app.api.movies import movies
+from app.api.db import metadata, database, engine
+
+metadata.create_all(engine)
+
+app = FastAPI()
+
+@app.on_event("startup")
+async def startup():
+    await database.connect()
+
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
+
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              18) Modifier le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >movies.py</code
+                              >afin qu'il utilise une base de données au lieu
+                              d'une fausse liste Python<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                >fake_movie_db</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >movies.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from fastapi import FastAPI
+from app.api.movies import movies
+
+# Importation des instances du fichier "bd.py" (app>api>db.py)
+from app.api.db import metadata, database, engine
+
+# Création de toutes les tables utilisant l'objet "metadata"
+# dans le fichier app>api>db.py
+metadata.create_all(engine)
+
+# Instanciation de FastAPI
+app = FastAPI()
+
+# Ouverture de la connexion à la base de données
+# lors du démarrage de l'application (uvicorn app.main:app --reload)
+@app.on_event("startup")
+async def startup():
+    await database.connect()
+
+# Fermeture de la connexion à la base de données
+# lors de l'arrêt de l'application (ctrl + c)
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
+
+
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >main.py<br />
+                              <span class="text-warning">Sans commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">from fastapi import FastAPI
+from app.api.movies import movies
+from app.api.db import metadata, database, engine
+
+metadata.create_all(engine)
+
+app = FastAPI()
+
+@app.on_event("startup")
+async def startup():
+    await database.connect()
+
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
+
+app.include_router(movies)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              19) Mettre à jour le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >movies.py</code
+                              >afin qu'il utilise une base de données au lieu
+                              d’une fausse liste Python.
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >movies.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation des modules nécessaires
+from typing import List
+from fastapi import Header, APIRouter
+from app.api.models import MovieIn, MovieOut
+from app.api import db_manager
+
+# Création d'un routeur FastAPI
+movies = APIRouter()
+
+# Route pour lister les films (get)
+@movies.get('/', response_model=List[MovieOut])
+async def index():
+    return await db_manager.get_all_movies()
+
+# Route pour ajouter un film (post)
+@movies.post('/', status_code=201)
+async def add_movie(payload: MovieIn):
+    movie_id = await db_manager.add_movie(payload)
+    response = {
+        'id': movie_id,
+        **payload.dict()
+    }
+
+    return response
+
+# Route pour modifier un film
+@movies.put('/{id}')
+async def update_movie(id: int, payload: MovieIn):
+    movie = payload.dict()
+    fake_movie_db[id] = movie
+    return None
+
+# Route pour modifier un film avec vérifications
+@movies.put('/{id}')
+async def update_movie(id: int, payload: MovieIn):
+    movie = await db_manager.get_movie(id)
+    if not movie:
+        raise HTTPException(status_code=404, detail="Movie not found")
+
+    update_data = payload.dict(exclude_unset=True)
+    movie_in_db = MovieIn(**movie)
+
+    updated_movie = movie_in_db.copy(update=update_data)
+
+    return await db_manager.update_movie(id, updated_movie)
+
+# Route pour supprimer un film (delete)
+@movies.delete('/{id}')
+async def delete_movie(id: int):
+    movie = await db_manager.get_movie(id)
+    if not movie:
+        raise HTTPException(status_code=404, detail="Movie not found")
+    return await db_manager.delete_movie(id)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              20) Dans le dossier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-folder-fill fs-5 text-white me-2"
+                                ></i
+                                >api</code
+                              >, créer un nouveau fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >db_manager.py</code
+                              >
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db_manager.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation des modules nécessaires
+from app.api.models import MovieIn, MovieOut, MovieUpdate
+from app.api.db import movies, database
+
+# Fonction asynchrone pour ajouter un film
+async def add_movie(payload: MovieIn):
+    query = movies.insert().values(**payload.dict())
+
+    return await database.execute(query=query)
+
+# Fonction asynchrone pour lister les films
+async def get_all_movies():
+    query = movies.select()
+    return await database.fetch_all(query=query)
+
+# Fonction asynchrone pour lister un film
+async def get_movie(id):
+    query = movies.select(movies.c.id==id)
+    return await database.fetch_one(query=query)
+
+# Fonction asynchrone pour supprimer un film
+async def delete_movie(id: int):
+    query = movies.delete().where(movies.c.id==id)
+    return await database.execute(query=query)
+
+# Fonction asynchrone pour modifier un film
+async def update_movie(id: int, payload: MovieIn):
+    query = (
+        movies
+        .update()
+        .where(movies.c.id == id)
+        .values(**payload.dict())
+    )
+    return await database.execute(query=query)
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              21) Mettre à jour le fichier<code
+                                class="text-gray-900 border border-1 border-white fs-4"
+                                ><i
+                                  class="bi bi-file-code-fill fs-5 text-white me-2"
+                                ></i
+                                >models.py</code
+                              >afin d'utiliser le modèle Pydantic avec la table
+                              sqlalchemy.
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >models.py<br />
+                              <span class="text-warning">Avec commentaires</span
+                              ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;"># Importation des modules nécessaires
+from pydantic import BaseModel
+from typing import List, Optional
+
+# Définition d'une classe "MovieIn" qui hérite de BaseModel
+# pour la validation des données
+class MovieIn(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts: List[str]
+
+# Définition d'une classe "MovieOut" héritant de MovieIn
+# ajoutant un champ id
+class MovieOut(MovieIn):
+    id: int
+
+# Cette classe hérite également de MovieIn
+# Elle représente les mises à jours potentielles d'un film
+class MovieUpdate(MovieIn):
+    name: Optional[str] = None
+    plot: Optional[str] = None
+    genres: Optional[List[str]] = None
+    casts: Optional[List[str]] = None
+</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="fs-4 mb-20">
+                      <div
+                        class="alert bg-light-primary d-flex flex-column py-10 px-10 px-lg-20"
+                      >
+                        <h1 class="fw-bold mb-10">
+                          Étape 4 - Modèles de gestion des données pour les
+                          microservices
+                        </h1>
+                        <div class="text-white fs-4">
+                          <div class="mb-10">
+                            <div class="row d-flex justify-content-center">
+                              <div class="col-auto">
+                                <div class="alert alert-success" role="alert">
+                                  <h3>Explication</h3>
+                                  <br />
+                                  <p class="text-white fs-4 mb-0">
+                                    Les "Modèles de gestion des données pour les
+                                    microservices" font référence à des schémas
+                                    ou à des approches spécifiques utilisées
+                                    pour gérer les données dans un environnement
+                                    basé sur l'architecture de microservices.
+                                    Dans le contexte des microservices, où
+                                    différentes fonctions d'une application sont
+                                    gérées par des services distincts, la
+                                    gestion des données devient complexe. Les
+                                    modèles de gestion des données fournissent
+                                    des solutions et des approches pour relever
+                                    ces défis. Voici quelques-uns des modèles
+                                    couramment utilisés :
+                                  </p>
+
+                                  <ul class="text-white mt-2">
+                                    <li>
+                                      Base de Données par Service : Utile pour
+                                      des microservices indépendants.
+                                      <br />Inconvénients : transactions
+                                      complexes, inefficace avec la surcharge
+                                      réseau.
+                                    </li>
+                                    <li>
+                                      Base de Données Partagée : Favorise la
+                                      cohérence, mais limite les avantages des
+                                      microservices. Coordination nécessaire
+                                      entre les services.
+                                    </li>
+                                    <li>
+                                      Composition d'API : Agit comme une
+                                      passerelle pour les transactions entre
+                                      microservices. <br />Inconvénient :
+                                      jointures inefficaces sur de grands
+                                      ensembles de données.
+                                    </li>
+                                  </ul>
+
+                                  <!-- </p> -->
+                                  <br />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              22) Création d'un microservice Python dans Docker
+                            </p>
+                            <p class="text-white fs-4">
+                              Installation de Docker et Docker Compose
+                            </p>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              23) Création du service Movies
+                            </p>
+                            <div class="highlight mb-5">
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+# Utilise l'image de base python:3.8-slim de Docker Hub. 
+# Cette image est basée sur une version légère de Python 3.8, ce qui signifie qu'elle est plus petite en taille.
+FROM python:3.8-slim
+
+# Définit le répertoire de travail à l'intérieur du conteneur Docker comme étant /app. 
+# Toutes les commandes suivantes seront exécutées à partir de ce répertoire.
+WORKDIR /app
+
+# Copie le fichier requirements.txt du répertoire local (où se trouve le Dockerfile) vers le répertoire /app à l'intérieur du conteneur. 
+# Ce fichier est généralement utilisé pour spécifier les dépendances Python du projet.
+COPY ./requirements.txt /app/requirements.txt
+
+# Met à jour les informations sur les paquets disponibles, installe le compilateur GCC, puis nettoie le cache des paquets. 
+# Ceci est nécessaire car certains modules Python peuvent nécessiter des dépendances système pour être compilés.
+RUN apt-get update \
+    && apt-get install gcc -y \
+    && apt-get clean
+
+# Installe les dépendances Python spécifiées dans le fichier requirements.txt. 
+# Ensuite, supprime le cache de pip pour réduire la taille de l'image finale.
+RUN pip install -r /app/requirements.txt \
+    && rm -rf /root/.cache/pip
+    
+# Copie tous les fichiers du répertoire local (où se trouve le Dockerfile) vers le répertoire /app à l'intérieur du conteneur. 
+# Cela inclut probablement le code source de l'application.
+COPY . /app/</code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              24) Mise à jour des fichiers
+                              models.py/db.py/movies.py/service.py
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >models.py<br />
+                              <span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+# Importation de Pydantic et de types :
+from pydantic import BaseModel
+from typing import List, Optional
+
+# Définition de MovieIn (entrée) :
+class MovieIn(BaseModel):
+    name: str
+    plot: str
+    genres: List[str]
+    casts_id: List[int]
+
+# Définition de MovieOut (sortie) :
+class MovieOut(MovieIn):
+    id: int
+
+# Définition de MovieUpdate (mise à jour) :
+class MovieUpdate(MovieIn):
+    name: Optional[str] = None
+    plot: Optional[str] = None
+    genres: Optional[List[str]] = None
+    casts_id: Optional[List[int]] = None</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db.py ><br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+
+# Importation des Modules :
+import os
+
+from sqlalchemy import (Column, DateTime, Integer, MetaData, String, Table,
+                        create_engine, ARRAY)
+from databases import Database
+
+# Définition de l'URL de la Base de Données :
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+# Création du Moteur SQLAlchemy :
+engine = create_engine(DATABASE_URL)
+
+# Définition de la Métadonnée SQLAlchemy :
+metadata = MetaData()
+
+# Définition de la Table movies :
+movies = Table(
+    'movies',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String(50)),
+    Column('plot', String(250)),
+    Column('genres', ARRAY(String)),
+    Column('casts_id', ARRAY(Integer))
+)
+
+# Création de l'Objet Database :
+database = Database(DATABASE_URL)
+                                </code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >movies.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+# Importation des Modules :
+from typing import List
+from fastapi import APIRouter, HTTPException
+
+from app.api.models import MovieOut, MovieIn, MovieUpdate
+from app.api import db_manager
+from app.api.service import is_cast_present
+
+# Création du Routeur FastAPI :
+movies = APIRouter()
+
+# Opération de Création (POST) :
+@movies.post('/', response_model=MovieOut, status_code=201)
+async def create_movie(payload: MovieIn):
+    for cast_id in payload.casts_id:
+        if not is_cast_present(cast_id):
+            raise HTTPException(status_code=404, detail=f"Cast with id:{cast_id} not found")
+
+    movie_id = await db_manager.add_movie(payload)
+    response = {
+        'id': movie_id,
+        **payload.dict()
+    }
+
+    return response
+
+# Opération de Lecture (GET) - Liste de Films :
+@movies.get('/', response_model=List[MovieOut])
+async def get_movies():
+    return await db_manager.get_all_movies()
+
+# Opération de Lecture (GET) - Film Unique :
+@movies.get('/{id}/', response_model=MovieOut)
+async def get_movie(id: int):
+    movie = await db_manager.get_movie(id)
+    if not movie:
+        raise HTTPException(status_code=404, detail="Movie not found")
+    return movie
+
+# Opération de Mise à Jour (PUT) :
+@movies.put('/{id}/', response_model=MovieOut)
+async def update_movie(id: int, payload: MovieUpdate):
+    movie = await db_manager.get_movie(id)
+    if not movie:
+        raise HTTPException(status_code=404, detail="Movie not found")
+
+    update_data = payload.dict(exclude_unset=True)
+
+    if 'casts_id' in update_data:
+        for cast_id in payload.casts_id:
+            if not is_cast_present(cast_id):
+                raise HTTPException(status_code=404, detail=f"Cast with given id:{cast_id} not found")
+
+    movie_in_db = MovieIn(**movie)
+
+    updated_movie = movie_in_db.copy(update=update_data)
+
+    return await db_manager.update_movie(id, updated_movie)
+
+# Opération de Suppression (DELETE) :
+@movies.delete('/{id}', response_model=None)
+async def delete_movie(id: int):
+    movie = await db_manager.get_movie(id)
+    if not movie:
+        raise HTTPException(status_code=404, detail="Movie not found")
+    return await db_manager.delete_movie(id)</code></pre>
+                              </div>
+                            </div>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >api >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >service.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modules :
+                                    import os
+                                    import httpx
+                                    
+                                    # Définition de l'URL du Service des Acteurs :
+                                    CAST_SERVICE_HOST_URL = 'http://localhost:8002/api/v1/casts/'
+                                    url = os.environ.get('CAST_SERVICE_HOST_URL') or CAST_SERVICE_HOST_URL
+                                    
+                                    # Fonction is_cast_present :
+                                    def is_cast_present(cast_id: int):
+                                        r = httpx.get(f'{url}{cast_id}')
+                                        return True if r.status_code == 200 else False
+                                    </code></pre>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-10">
+                            <p class="text-white fs-4">
+                              25) Création du service Casts
+                            </p>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; Créez une structure de dossiers comme
+                              celle-ci :
+                            </p>
+                            <div class="highlight mb-5">
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    python-microservices/
+                                    .
+                                    ├── cast_service/
+                                    │   ├── app/
+                                    │   │   ├── api/
+                                    │   │   │   ├── casts.py
+                                    │   │   │   ├── db_manager.py
+                                    │   │   │   ├── db.py
+                                    │   │   │   ├── models.py
+                                    │   │   ├── main.py
+                                    │   ├── Dockerfile
+                                    │   └── requirements.txt
+                                    ├── movie_service/
+                                    ...</code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; Ajoutez ce qui suit à requirements.txt :
+                            </p>
+                            <div class="highlight mb-5">
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Bibliothèque pour PostgreSQL de manière asynchrone 
+                                    asyncpg==0.20.1
+
+                                    # Bibliothèque pour requêtes asynchrones sur PostgreSQL
+                                    databases[postgresql]==0.2.6
+
+                                    # Framework web asynchrone pour construire des API 
+                                    fastapi==0.48.0
+
+                                    # Bibliothèque ORM pour interagir avec des bases de données relationnelles
+                                    SQLAlchemy==1.3.13
+
+                                    #  Serveur ASGI pour exécuter des applications FastAPI
+                                    uvicorn==0.11.2</code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; Dockerfile :
+                            </p>
+                            <div class="highlight mb-5">
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Utilise l'image Python 3.8 légère.
+                                    FROM python:3.8-slim
+
+                                    # Définit le répertoire de travail.
+                                    WORKDIR /app
+                                    
+                                    # Copie le fichier des dépendances.
+                                    COPY ./requirements.txt /app/requirements.txt
+                                    
+                                    # Installe les dépendances système.
+                                    RUN apt-get update \
+                                        && apt-get install gcc -y \
+                                        && apt-get clean
+                                    
+                                    # Installe les dépendances Python et nettoie le cache.
+                                    RUN pip install -r /app/requirements.txt \
+                                        && rm -rf /root/.cache/pip
+                                    
+                                    # Copie le code source de l'application.
+                                    COPY . /app/</code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; main.py :
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >cast-service >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >service.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modules :
+                                    from fastapi import FastAPI
+                                    from app.api.casts import casts
+                                    from app.api.db import metadata, database, engine
+                                    
+                                    # Création des Tables de la Base de Données :
+                                    metadata.create_all(engine)
+                                    
+                                    # Création de l'Instance FastAPI :
+                                    app = FastAPI()
+                                    
+                                    # Événements de Démarrage et Arrêt de l'Application :
+                                    @app.on_event("startup")
+                                    async def startup():
+                                        await database.connect()
+                                    
+                                    # Inclusion des Itinéraires (Routes) :
+                                    @app.on_event("shutdown")
+                                    async def shutdown():
+                                        await database.disconnect()
+                                    
+                                    app.include_router(casts, prefix='/api/v1/casts', tags=['casts'])
+                                      </code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; casts.py :
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >cast-service >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >casts.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modules et des Modèles :
+                                    from fastapi import APIRouter, HTTPException
+                                    from typing import List
+                                    
+                                    from app.api.models import CastOut, CastIn, CastUpdate
+                                    from app.api import db_manager
+                                    
+                                    # Création d'un Routeur FastAPI pour les Acteurs (casts) :
+                                    casts = APIRouter()
+                                    
+                                    # Itinéraire de Création d'un Acteur (POST) :
+                                    @casts.post('/', response_model=CastOut, status_code=201)
+                                    async def create_cast(payload: CastIn):
+                                        cast_id = await db_manager.add_cast(payload)
+                                    
+                                        response = {
+                                            'id': cast_id,
+                                            **payload.dict()
+                                        }
+                                    
+                                        return response
+                                    
+                                    # Itinéraire de Récupération d'un Acteur par ID (GET) :
+                                    @casts.get('/{id}/', response_model=CastOut)
+                                    async def get_cast(id: int):
+                                        cast = await db_manager.get_cast(id)
+                                        if not cast:
+                                            raise HTTPException(status_code=404, detail="Cast not found")
+                                        return cast
+                                      </code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; db_manager.py :
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >cast-service >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db_manager.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modèles et de la Base de Données :
+                                    from app.api.models import CastIn, CastOut, CastUpdate
+                                    from app.api.db import casts, database
+                                    
+                                    # Fonction d'Ajout d'un Acteur (add_cast) :
+                                    async def add_cast(payload: CastIn):
+                                        query = casts.insert().values(**payload.dict())
+                                    
+                                        return await database.execute(query=query)
+                                    
+                                    # Fonction de Récupération d'un Acteur par ID (get_cast) :
+                                    async def get_cast(id):
+                                        query = casts.select(casts.c.id==id)
+                                        return await database.fetch_one(query=query)
+                                      </code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; db.py :
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >cast-service >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >db.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modules :
+                                    import os
+
+                                    from sqlalchemy import (Column, Integer, MetaData, String, Table,
+                                                            create_engine, ARRAY)
+                                    
+                                    from databases import Database
+                                    
+                                    # Récupération de l'URI de la Base de Données depuis les Variables d'Environnement :
+                                    DATABASE_URI = os.getenv('DATABASE_URI')
+                                    
+                                    # Configuration du Moteur de la Base de Données et de la Métadonnée (Metadata) :
+                                    engine = create_engine(DATABASE_URI)
+                                    metadata = MetaData()
+                                    
+                                    # Définition de la Table casts :
+                                    casts = Table(
+                                        'casts',
+                                        metadata,
+                                        Column('id', Integer, primary_key=True),
+                                        Column('name', String(50)),
+                                        Column('nationality', String(20)),
+                                    )
+                                    
+                                    # Configuration de la Connexion à la Base de Données via databases :
+                                    database = Database(DATABASE_URI)
+                                      </code></pre>
+                              </div>
+                            </div>
+                            <p class="text-white fs-4 ms-6">
+                              &#8227; models.py :
+                            </p>
+                            <div class="highlight mb-5">
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >ProjetMicroservice >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >cast-service >
+                              <i
+                                class="bi bi-folder-fill fs-5 text-white me-2"
+                              ></i
+                              >app >
+                              <i
+                                class="bi bi-file-code-fill fs-5 text-white me-2"
+                              ></i
+                              >models.py <br /><span>&nbsp;</span>
+                              <button
+                                class="highlight-copy btn"
+                                data-bs-toggle="tooltip"
+                                title="Copy code"
+                              >
+                                copy
+                              </button>
+                              <div class="highlight-code">
+                                <pre
+                                  class="language-bash"
+                                ><code class="language-bash" style="font-size: 13pt!important;">
+                                    # Importation des Modules :
+                                    from pydantic import BaseModel
+                                    from typing import List, Optional
+                                    
+                                    # Définition du Modèle CastIn (Entrée) :
+                                    class CastIn(BaseModel):
+                                        name: str
+                                        nationality: Optional[str] = None
+                                    
+                                    # Définition du Modèle CastOut (Sortie) :
+                                    class CastOut(CastIn):
+                                        id: int
+                                    
+                                    # Définition du Modèle CastUpdate (Mise à Jour) :
+                                    class CastUpdate(CastIn):
+                                        name: Optional[str] = None
+                                      </code></pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+      <i class="bi bi-arrow-up fs-5 text-white"></i>
+    </div>
+
+    <script>
+      let hostUrl = "assets/";
+    </script>
+    <script src="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="https://preview.keenthemes.com/html/metronic/docs/assets/js/scripts.bundle.js"></script>
+    <script src="https://preview.keenthemes.com/html/metronic/docs/assets/js/custom/documentation/documentation.js"></script>
+    <script src="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+  </body>
+</html>
