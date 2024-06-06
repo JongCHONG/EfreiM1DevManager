@@ -1,0 +1,26 @@
+#Preparation d'un stack de services pour afin de lancer differents containers en même temps ou dans l'ordre.
+#command à utiliser :
+  #docker compose up -d -> lancer le stack
+  #docker compose down -> stop le stack
+  #docker compose ps -> le status
+services:
+  web:
+    image: php:8.2-apache
+    ports:
+      - 8080:80
+    #volume sert à indiquer où sauvegarder les données. Il est enregistrer en dehors des containers afin de ne pas les perdre.
+    volumes:
+      - ./src:/var/usr/www/html
+    #depends_on permet de preciser l'autre de lancement
+    depends_on:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db-test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    volumes:
+      - ./data/db:/var/lib/mysql
+

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: EcoFont;
+  src: url(./font/spranq_eco_sans_regular.ttf);
+}
+
+body {
+  font-family: "Ecofont";
+  width: 800px;
+  margin: auto;
+  margin-top: 10px;
+  -webkit-box-shadow: 5px 9px 7px 5px #bfbfbf;
+  box-shadow: 5px 9px 7px 5px #bfbfbf;
+  padding: 50px;
+}
+
+.question {
+  font-weight: bold;
+}
+
+article, footer {
+  margin-top: 70px;
+}
+
+p { margin-bottom: 10px;}
