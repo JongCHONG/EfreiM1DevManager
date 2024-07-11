@@ -29,6 +29,7 @@ tr {
 
 td {
   width: 30%;
+  min-height: 40px;
 }
 
 .action {

@@ -5,10 +5,8 @@ type Query {
 }
 
 type User {
-  id: ID!
   email: String!
   password: String!
-
 }
 
 type AuthPayload {
@@ -20,12 +18,13 @@ type Book {
   id: ID!
   title: String
   author: String
+  ownerEmail: String
 }
 
 type Mutation {
-  addBook(title: String!, author: String!): Book!
+  addBook(title: String!, author: String!, ownerEmail: String!): Book!
   modifyBook(id: ID!, title: String!, author: String!): Book!
   deleteBook(id: ID!): Book!
-  signUp(email: String!, password: String!): AuthPayload
-  login(email: String!, password: String!): AuthPayload
+  signUp(email: String!, password: String!): User!
+  login(email: String!, password: String!): User!
 }

@@ -26,6 +26,7 @@ export type Book = {
   __typename?: 'Book';
   author?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
+  ownerEmail?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
 
@@ -33,14 +34,15 @@ export type Mutation = {
   __typename?: 'Mutation';
   addBook: Book;
   deleteBook: Book;
-  login?: Maybe<AuthPayload>;
+  login: User;
   modifyBook: Book;
-  signUp?: Maybe<AuthPayload>;
+  signUp: User;
 };
 
 
 export type MutationAddBookArgs = {
   author: Scalars['String']['input'];
+  ownerEmail: Scalars['String']['input'];
   title: Scalars['String']['input'];
 };
 
@@ -72,7 +74,6 @@ export type Query = {
   __typename?: 'Query';
   bookById?: Maybe<Book>;
   books?: Maybe<Array<Maybe<Book>>>;
-  me?: Maybe<User>;
 };
 
 
@@ -83,7 +84,6 @@ export type QueryBookByIdArgs = {
 export type User = {
   __typename?: 'User';
   email: Scalars['String']['output'];
-  id: Scalars['ID']['output'];
   password: Scalars['String']['output'];
 };
 
@@ -190,27 +190,26 @@ export type AuthPayloadResolvers<ContextType = any, ParentType extends Resolvers
 export type BookResolvers<ContextType = any, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = ResolversObject<{
   author?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  ownerEmail?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
-  addBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationAddBookArgs, 'author' | 'title'>>;
+  addBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationAddBookArgs, 'author' | 'ownerEmail' | 'title'>>;
   deleteBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationDeleteBookArgs, 'id'>>;
-  login?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationLoginArgs, 'email' | 'password'>>;
+  login?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<MutationLoginArgs, 'email' | 'password'>>;
   modifyBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationModifyBookArgs, 'author' | 'id' | 'title'>>;
-  signUp?: Resolver<Maybe<ResolversTypes['AuthPayload']>, ParentType, ContextType, RequireFields<MutationSignUpArgs, 'email' | 'password'>>;
+  signUp?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<MutationSignUpArgs, 'email' | 'password'>>;
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   bookById?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryBookByIdArgs, 'id'>>;
   books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
-  me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
 }>;
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;

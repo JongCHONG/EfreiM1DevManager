@@ -4,7 +4,8 @@ import "../App.css";
 import { GrEdit } from "react-icons/gr";
 
 import DeleteBook from "./DeleteBook";
-import Modal from "./Modal";
+import ModifyBook from "./ModifyBook";
+import { useUser } from "../contexts/UserContext";
 
 const ListBooks = ({
   data,
@@ -13,13 +14,14 @@ const ListBooks = ({
   data: any;
   refetchBooks: any;
 }) => {
+  const { user } = useUser();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [editBookId, setEditBookId] = useState<any>(null);
 
   const handleEdit = (id: string) => {
-    setOpenModal(true)
-    setEditBookId(id)
-  }
+    setOpenModal(true);
+    setEditBookId(id);
+  };
 
   return (
     <>
@@ -28,6 +30,7 @@ const ListBooks = ({
           <tr>
             <th>Title</th>
             <th>Author</th>
+            <th>Owner</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -36,18 +39,27 @@ const ListBooks = ({
             <tr key={book.id}>
               <td>{book.title}</td>
               <td>{book.author}</td>
+              <td>{book.ownerEmail}</td>
               <td className="action">
-                <DeleteBook bookId={book.id} refetchBooks={refetchBooks} />
-                <GrEdit
-                  className="icon editIcon"
-                  onClick={() => handleEdit(book.id)}
-                />
+                {user && (
+                  <>
+                    <DeleteBook bookId={book.id} refetchBooks={refetchBooks} />
+                    <GrEdit
+                      className="icon editIcon"
+                      onClick={() => handleEdit(book.id)}
+                    />
+                  </>
+                )}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <Modal openModal={openModal} setOpenModal={setOpenModal} editBookId={editBookId}/>
+      <ModifyBook
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        editBookId={editBookId}
+      />
     </>
   );
 };
