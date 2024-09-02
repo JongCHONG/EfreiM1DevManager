@@ -1,0 +1,6 @@
+[submodule "Nest.js et API/Efrei-M4-NestJS-Final-Test"]
+	path = Nest.js et API/Efrei-M4-NestJS-Final-Test
+	url = https://github.com/JongCHONG/Efrei-M4-NestJS-Final-Test.git
+[submodule "Nest.js et API/nest-js-tp1-2024"]
+	path = Nest.js et API/nest-js-tp1-2024
+	url = https://github.com/JongCHONG/EfreiM4NestJS-TP1-2024.git
